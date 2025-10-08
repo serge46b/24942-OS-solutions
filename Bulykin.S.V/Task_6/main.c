@@ -105,16 +105,17 @@ int main(int argc, char* argv[]) {
         printf("%5d | %6ld | %6ld\n", i + 1, table.array[i].offset, table.array[i].length);
     }
     printf("\nTotal lines: %d\n\n", table.cnt);
+    alarm(5);
 
     while (1) {
         int num;
         printf("Enter the line number: ");
-        alarm(5);
 
         scanf("%d", &num);
 
+
         if (num == 0) { break; }
-        if (table.cnt < num) {
+        if (table.cnt < num || num < 1) {
             printf("The file contains only %d line(s).\n", table.cnt);
             continue;
         }
