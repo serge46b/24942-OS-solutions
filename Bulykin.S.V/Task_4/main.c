@@ -30,6 +30,7 @@ void free_list(struct Node *head) {
   struct Node *current = head;
   while (current != NULL) {
     struct Node *next = current->next;
+    free(current->data);
     free(current);
     current = next;
   }
